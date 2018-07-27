@@ -1,0 +1,91 @@
+﻿<Window x:Class="WarsztatWpf.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WarsztatWpf"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        mc:Ignorable="d"
+        Title="Warsztat"
+        >
+
+        <Grid>
+            <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="5*"/>
+            </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Frame Name="MainMenuFrame" Grid.Row="0"/>
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Frame Name="SubMenuFrame" Grid.Column="0" NavigationUIVisibility="Hidden"/>
+                <Frame Name="HeaderFrame" Grid.Column="1" NavigationUIVisibility="Hidden"/>
+            </Grid>
+        </Grid>
+        <Border Background="AliceBlue" Grid.Row="1" >
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="15*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Frame Name="ContentFrame" Grid.Row="1"  NavigationUIVisibility="Hidden" Margin="10,0,0,0" />
+                <Grid Grid.Column="2" Grid.Row="1" Margin="0,0,10,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="10*"/>
+                    </Grid.RowDefinitions>
+                    <Frame Name="listSubMenuFrame"  NavigationUIVisibility="Hidden" Grid.Row="0" />
+                    <Grid Grid.Row="1">
+                        <Grid.RowDefinitions>
+                         
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Frame Name="listFrame"  NavigationUIVisibility="Hidden" Grid.Row="0"/>
+                    </Grid>
+                </Grid>
+
+                <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="5,0,0,0">
+                    <TextBlock Text="Zalogowany jako: "/>
+                    <TextBlock Text="{Binding Path=Identity.Name}" TextAlignment="Left"/>
+                </StackPanel>
+                <StackPanel Grid.Row="2" Grid.Column="2" Orientation="Horizontal" Margin="0,0,5,0" HorizontalAlignment="Right">
+                    <TextBlock Text="Używana baza danych: " TextAlignment="Right"/>
+                    <TextBlock Text="{Binding Path=SelectedDatabase}" TextAlignment="Right"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+
+        <!--<xctk:BusyIndicator  IsBusy="{Binding Path=BusyIndicatorViewModel.IsBusy}" Grid.RowSpan="2" DisplayAfter="0">
+            <xctk:BusyIndicator.BusyContentTemplate>
+                <DataTemplate>
+                    <StackPanel Margin="4">
+                        <TextBlock Text="{Binding DataContext.BusyIndicatorViewModel.TextMessage, RelativeSource={RelativeSource AncestorType=Window}}" FontWeight="Bold" HorizontalAlignment="Center"/>
+                        <StackPanel Margin="4">
+                            <TextBlock Text="{Binding DataContext.BusyIndicatorViewModel.TextMessageDescription, RelativeSource={RelativeSource AncestorType=Window}}"/>
+                        </StackPanel>
+                    </StackPanel>
+                </DataTemplate>
+            </xctk:BusyIndicator.BusyContentTemplate>
+            <ContentControl />
+        </xctk:BusyIndicator>-->
+        <!--<xctk:BusyIndicator IsBusy="{Binding Path=BusyIndicatorViewModel.IsBusy}" BusyContent="Proszę czekać..." Grid.RowSpan="2" >
+            <ContentControl />
+        </xctk:BusyIndicator>-->
+    </Grid>
+
+</Window>

@@ -1,0 +1,26 @@
+﻿<Page x:Class="WarsztatWpf.MenuEditView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WarsztatWpf"
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="300"
+      DataContext="{Binding MenuEditViewModel}">
+
+    <Grid Grid.Row="0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+        </Grid.ColumnDefinitions>
+
+        <Button Width="35" Grid.Column="1" Margin="0,0,5,0" ToolTip="Zapisz" Command="{Binding Path=ContentViewModel.SaveCommand}">
+            <Image Source="/Infrastructure/Resources/zapisz.png"></Image>
+        </Button>
+
+        <Button Width="35" Grid.Column="2" Margin="0,0,5,0" ToolTip="Wyjdz" Command="{Binding Path=ContentViewModel.QuitCommand}">
+            <Image Source="/Infrastructure/Resources/wyjdz.png"></Image>
+        </Button>
+    </Grid>
+</Page>
